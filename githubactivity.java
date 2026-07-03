@@ -81,8 +81,6 @@ public class githubactivity {
 
         }
 
-        //System.out.println(events);
-
     }
 
     static void main(String[] Args) {
