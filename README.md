@@ -1,8 +1,9 @@
 https://roadmap.sh/projects/github-user-activity
 ### Git hub user activity CLI
-## first clone
+## to start using, run these in your terminal
 ```
 git clone https://github.com/andrebulao26-prog/GitHubUserActivity
+cd GitHubUserActivity
 ```
 ## how to use
 ```
