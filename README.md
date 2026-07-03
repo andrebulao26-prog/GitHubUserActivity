@@ -7,7 +7,7 @@ cd GitHubUserActivity
 ```
 ## how to use
 ```
-java githubactivity <GitHubb username>
+java githubactivity <GitHub username>
 ```
 ## example use and output
 ```
