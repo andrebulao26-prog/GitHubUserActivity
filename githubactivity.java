@@ -6,6 +6,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class githubactivity {
 
@@ -53,7 +54,32 @@ public class githubactivity {
             }
         }
 
-        System.out.println(events);
+        for (String key : events.keySet()) {
+
+            ArrayList<String> types = events.get(key);
+
+            Integer pushes = 0;
+            Integer watches = 0;
+
+            for (String type : types) {
+                switch (type) {
+                    case "PushEvent":
+                        pushes++;
+                        break;
+                    case "WatchEvent":
+                        watches++;
+                        break;
+                }
+            }
+
+            if (pushes>0) {
+                System.out.println("-Pushed " + pushes + " commits to " + key);
+            }
+            if (watches>0) {
+                System.out.println("-Starred " + key);
+            }
+
+        }
 
         //System.out.println(events);
 
