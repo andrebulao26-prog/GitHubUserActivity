@@ -13,5 +13,5 @@ java githubactivity <GitHubb username>
 java githubactivity andrebulao26-prog
 -Pushed 1 commits to andrebulao26-prog/GitHubUserActivity
 -Pushed 8 commits to andrebulao26-prog/TaskTracker
--Starred andrebulao26-prog/TaskTracke
+-Starred andrebulao26-prog/TaskTracker
 ```
