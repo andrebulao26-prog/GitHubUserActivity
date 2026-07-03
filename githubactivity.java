@@ -4,8 +4,60 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class githubactivity {
+
+    public static void ReformatJSON(String body) {
+
+        body = body.replace("[","").replace("]","").replace("{","").replace("}","");
+
+        HashMap<String, ArrayList<String>> events = new HashMap<>();
+
+        Integer ith = 0;
+
+        String typeName = "";
+        String repoName = "";
+        Integer ID = 0;
+
+        for (String s : body.split(",")) {
+
+            ith++;
+            //System.out.println(ith + " - " + s);
+
+            if (typeName.equals("") && s.contains("type")) {
+                typeName = s.replace("\"type\":\"","").replace("\"","");
+            }
+            if (repoName.equals("") && s.contains("https://api.github.com/repos/")) {
+                repoName = s.replace("\"url\":\"https://api.github.com/repos/","").replace("\"","");
+            }
+
+            if (ith == 19) {
+
+                if (!events.containsKey(repoName)) {
+                    events.put(repoName,new ArrayList<String>());
+                }
+
+                ArrayList<String> list = events.get(repoName);
+
+                list.add(typeName);
+
+                events.replace(repoName,list);
+
+                typeName = "";
+                repoName = "";
+
+                ith = 0;
+                ID++;
+            }
+        }
+
+        System.out.println(events);
+
+        //System.out.println(events);
+
+    }
 
     static void main(String[] Args) {
 
@@ -28,7 +80,7 @@ public class githubactivity {
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpResponse<String> response = httpClient.send(getRequest, HttpResponse.BodyHandlers.ofString());
 
-            System.out.println(response.body());
+            ReformatJSON(response.body());
 
         } catch (Exception e) {
             System.out.println("Failed to fetch user");
