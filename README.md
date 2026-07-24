@@ -1,4 +1,3 @@
-https://roadmap.sh/projects/github-user-activity
 ### Git hub user activity CLI
 ## to start using, run these in your terminal
 ```
@@ -16,3 +15,4 @@ java githubactivity andrebulao26-prog
 -Pushed 8 commits to andrebulao26-prog/TaskTracker
 -Starred andrebulao26-prog/TaskTracker
 ```
+https://roadmap.sh/projects/github-user-activity
